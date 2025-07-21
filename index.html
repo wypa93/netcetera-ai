@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netcetera AI: Projects & Team</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A multi-section, single-page application. It starts with a welcoming Home page (#home) introducing the Netcetera AI team. From there, users can navigate to a Projects section (#projects) to explore various AI initiatives, with the "Autonomous Network Validation" project highlighted and linked to its detailed interactive section (#telecom-project-details). A dedicated Team section (#team) showcases individual developer profiles. This structure provides a clear entry point, allows for project discovery, and offers detailed team insights, enhancing user understanding and navigation by logically separating content. -->
+    <!-- Visualization & Content Choices: Report Info: Team introduction -> Goal: Introduce expertise -> Viz: Text blocks with bios and image placeholders. Report Info: Multiple projects -> Goal: Showcase breadth -> Viz: Project cards with titles and brief descriptions, clickable for details (for prominent projects). Report Info: Manual troubleshooting -> Goal: Show inefficiency -> Viz: Stat block "75% Manual". Report Info: Value of data over time graphs -> Goal: Contrast old vs. new -> Viz: Interactive Chart.js Area Chart with a toggle. Report Info: Lambda Architecture Diagram -> Goal: Explain the system -> Viz: Interactive diagram using HTML/CSS, with clickable nodes showing details. Report Info: Two-level monitoring -> Goal: Detail the approach -> Viz: Clickable details tags. This avoids static images and uses interaction to manage information density. Library/Method: Chart.js for charts, Vanilla JS for all interactions, Tailwind for all styling and layout. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 40vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .component-dot {
+            transition: all 0.3s ease;
+        }
+        .component-dot:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        .flow-line {
+            position: absolute;
+            background-color: #9ca3af;
+            z-index: 0;
+        }
+        .flow-arrow::after {
+            content: '►';
+            position: absolute;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-900">G+D Netcetera - AI Team</h1>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-slate-600 hover:text-sky-600 transition">Home</a>
+                <a href="#projects" class="text-slate-600 hover:text-sky-600 transition">Projects</a>
+                <a href="#team" class="text-slate-600 hover:text-sky-600 transition">Our Team</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">Innovating with AI: Meet the Netcetera Team</h2>
+                <p class="text-lg text-slate-600 max-w-3xl mx-auto mb-12">We are a dedicated team of AI engineers and data scientists at Netcetera, passionate about leveraging cutting-edge artificial intelligence to solve complex real-world problems and drive digital transformation across various industries.</p>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-slate-100 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/120x120/E0F2F7/000000?text=AI+Team" alt="AI Team Placeholder 1" class="rounded-full mb-4 w-32 h-32 object-cover border-4 border-sky-200">
+                        <h4 class="font-bold text-lg text-slate-900">Dedicated AI Professionals</h4>
+                        <p class="text-sky-600 font-medium">AI Engineering & Data Science</p>
+                        <p class="text-slate-600 mt-2 text-sm">Our team comprises highly skilled AI engineers and data scientists, each bringing unique expertise in machine learning, natural language processing, and computer vision.</p>
+                    </div>
+                    <div class="bg-slate-100 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/120x120/E0F2F7/000000?text=Innovation" alt="Innovation Placeholder 2" class="rounded-full mb-4 w-32 h-32 object-cover border-4 border-sky-200">
+                        <h4 class="font-bold text-lg text-slate-900">Driving Innovation</h4>
+                        <p class="text-sky-600 font-medium">Research & Development</p>
+                        <p class="text-slate-600 mt-2 text-sm">We are constantly exploring new AI paradigms and technologies, ensuring our solutions are at the forefront of innovation and deliver maximum value.</p>
+                    </div>
+                    <div class="bg-slate-100 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                        <img src="https://placehold.co/120x120/E0F2F7/000000?text=Solutions" alt="Solutions Placeholder 3" class="rounded-full mb-4 w-32 h-32 object-cover border-4 border-sky-200">
+                        <h4 class="font-bold text-lg text-slate-900">Impactful Implementations</h4>
+                        <p class="text-sky-600 font-medium">End-to-End Delivery</p>
+                        <p class="text-slate-600 mt-2 text-sm">From conceptualization to deployment, we build robust and scalable AI solutions that integrate seamlessly into existing infrastructures.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12">
+                    <a href="#projects" class="inline-block bg-sky-600 text-white text-lg font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-sky-700 transition">Explore Our Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-slate-900">Our AI Projects & Solutions</h3>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Discover how Netcetera AI is applying advanced machine learning and data science across diverse domains to create impactful solutions.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Featured Project: Autonomous Network Validation -->
+                    <a href="#telecom-project-details" class="col-span-full md:col-span-2 lg:col-span-3 bg-sky-100 p-8 rounded-xl shadow-xl border-2 border-sky-500 flex flex-col md:flex-row items-center justify-between hover:shadow-2xl transition-shadow">
+                        <div class="md:w-2/3 text-center md:text-left mb-4 md:mb-0">
+                            <span class="text-sm font-semibold text-sky-700 mb-2 block">Featured Project</span>
+                            <h4 class="font-bold text-2xl text-sky-800 mb-2">Autonomous Network Validation in Telecom</h4>
+                            <p class="text-sky-700 text-lg">Revolutionizing telecommunication network maintenance with real-time monitoring and predictive anomaly detection for VoIP. This project highlights our core competency in Big Data and Rare Event Modeling.</p>
+                        </div>
+                        <div class="md:w-1/3 flex justify-center">
+                            <span class="text-6xl text-sky-500">📡</span>
+                        </div>
+                    </a>
+
+                    <!-- Second Prio Featured Project: AIOps -->
+                    <a href="#aiops-project-details" class="col-span-full md:col-span-2 lg:col-span-3 bg-indigo-100 p-8 rounded-xl shadow-xl border-2 border-indigo-500 flex flex-col md:flex-row items-center justify-between hover:shadow-2xl transition-shadow">
+                        <div class="md:w-2/3 text-center md:text-left mb-4 md:mb-0">
+                            <span class="text-sm font-semibold text-indigo-700 mb-2 block">Featured Project</span>
+                            <h4 class="font-bold text-2xl text-indigo-800 mb-2">AIOps: Next-Gen System Observability</h4>
+                            <p class="text-indigo-700 text-lg">Combining big data analytics, machine learning, and automation to enhance IT operations, automate tasks, and provide real-time actionable insights for complex distributed systems.</p>
+                        </div>
+                        <div class="md:w-1/3 flex justify-center">
+                            <span class="text-6xl text-indigo-500">🧠</span>
+                        </div>
+                    </a>
+
+                    <!-- Other Projects -->
+                    <a href="https://www.netcetera.com/artificial-intelligence/docdive.html" target="_blank" class="bg-white p-6 rounded-xl shadow-md border border-slate-200 block hover:shadow-lg transition-shadow">
+                        <h4 class="font-bold text-lg mb-2 text-slate-900">DocDive: Intelligent Document Understanding</h4>
+                        <p class="text-slate-600 text-sm">A platform leveraging RAG techniques for information retrieval, entity extraction, summarization, and Q&A over structured and unstructured data.</p>
+                    </a>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-slate-900">Speech2Form: Effortless Web Forms</h4>
+                        <p class="text-slate-600 text-sm">A solution that extracts key information from free human spoken text to automatically pre-fill web forms, enhancing user experience and efficiency.</p>
+                    </div>
+                    <!-- Removed: Predictive Maintenance for Industry -->
+                    <a href="https://www.netcetera.com/stories/news/AI-diagnoses-rare-genetic-disorders.html" target="_blank" class="bg-white p-6 rounded-xl shadow-md border border-slate-200 block hover:shadow-lg transition-shadow">
+                        <h4 class="font-bold text-lg mb-2 text-slate-900">AI for Genetic Disorder Diagnosis (Phivea®)</h4>
+                        <p class="text-slate-600 text-sm">In partnership with gMendel, we developed the Phivea® platform, utilizing AI to improve the diagnosis of rare genetic disorders faster, more reliably, and more affordably.</p>
+                    </a>
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                        <h4 class="font-bold text-lg mb-2 text-slate-900">Automated Quality Control (Computer Vision)</h4>
+                        <p class="text-slate-600 text-sm">Applying state-of-the-art computer vision models to detect defects on manufacturing parts in production lines with high accuracy.</p>
+                    </div>
+                    <a href="https://www.netcetera.com/stories/expertise/machine-learning-ai-risk-classification-healthcare.html" target="_blank" class="bg-white p-6 rounded-xl shadow-md border border-slate-200 block hover:shadow-lg transition-shadow">
+                        <h4 class="font-bold text-lg mb-2 text-slate-900">ML-powered Risk Classification in Healthcare</h4>
+                        <p class="text-slate-600 text-sm">Machine Learning powered risk classification to detect waste, abuse and fraud in health insurance claims. This project showcases how AI helps identify specific domain problems.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="telecom-project-details" class="py-16 md:py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-slate-900">Autonomous Network Validation: Deep Dive</h3>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">An interactive exploration of the shift towards AI-driven, autonomous validation in complex telecommunication networks, based on the showcase of real-time VoIP monitoring.</p>
+                </div>
+
+                <div id="challenge-telecom" class="py-12">
+                    <div class="text-center mb-12">
+                        <h4 class="text-2xl font-bold text-slate-900">The Challenge: A Complex and Manual Reality</h4>
+                        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Modern telecommunication networks are vast and intricate. Validating them and troubleshooting issues is a significant hurdle, dominated by time-consuming manual processes that struggle to keep pace with dynamic demands.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                            <h5 class="font-bold text-lg mb-2 text-slate-900">Key Industry Hurdles</h5>
+                            <ul class="space-y-2 text-slate-600">
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-sky-500">⚙️</span> Optimization of operational support</li>
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-sky-500">📈</span> Ever-increasing customer demands</li>
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-sky-500">💾</span> Burdens of legacy systems</li>
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-sky-500">📡</span> New complexities from 5G and IoT</li>
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-sky-500">🔒</span> Pervasive security issues</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-sky-600 text-white p-8 rounded-xl shadow-xl flex flex-col justify-center items-center text-center">
+                            <span class="text-7xl font-extrabold">75%</span>
+                            <p class="text-xl font-semibold mt-2">of the end-to-end validation and troubleshooting process is manual, leading to slow response times and high operational costs.</p>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 md:col-span-2 lg:col-span-1">
+                            <h5 class="font-bold text-lg mb-2 text-slate-900">Consequences of Inefficiency</h5>
+                            <p class="text-slate-600">This reliance on manual intervention means that traditional analytics fail, operator-set thresholds are inadequate, and gaining a deep, timely understanding of the network state is nearly impossible.</p>
+                            <ul class="mt-4 space-y-2 text-slate-600">
+                                <li>❌ Slow, complex trace gathering & analysis</li>
+                                <li>❌ Expert-dependent knowledge extraction</li>
+                                <li>❌ Delayed issue resolution</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 bg-white p-6 md:p-8 rounded-xl shadow-lg border border-slate-200">
+                        <h5 class="text-2xl font-bold text-center text-slate-900">The Declining Value of Data Over Time</h5>
+                        <p class="text-center mt-2 mb-6 text-slate-600">The core problem is the "information half-life." The longer it takes to act on data, the less valuable it becomes. The goal is to shift from being reactive to being preventive. Use the toggle to see the shift.</p>
+                        <div class="flex justify-center items-center mb-6">
+                            <span class="mr-3 text-slate-600">Traditional</span>
+                            <label for="chartToggle" class="flex items-center cursor-pointer">
+                                <div class="relative">
+                                    <input type="checkbox" id="chartToggle" class="sr-only">
+                                    <div class="block bg-slate-200 w-14 h-8 rounded-full"></div>
+                                    <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                                </div>
+                            </label>
+                            <span class="ml-3 font-semibold text-sky-600">Predictive</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="valueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="solution-telecom" class="py-12">
+                    <div class="text-center mb-12">
+                        <h4 class="text-2xl font-bold text-slate-900">The Autonomous Solution</h4>
+                        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">To overcome these challenges, a new paradigm is needed: an intelligent, data-driven approach that provides a holistic view of the network in real-time. This solution is built on a two-level monitoring system and a robust data processing architecture.</p>
+                    </div>
+
+                    <div class="bg-slate-50 p-8 rounded-xl border border-slate-200">
+                        <h5 class="text-2xl font-bold text-center mb-8 text-slate-900">Two-Level Monitoring Approach</h5>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <h6 class="font-bold text-xl mb-3 text-sky-700">Level 1: Foundational Monitoring</h6>
+                                <p class="text-slate-600 mb-4">This level gathers raw data directly from the network infrastructure and the services running on it. It's the eyes and ears of the system.</p>
+                                <div class="space-y-3">
+                                    <details class="group bg-slate-50 p-3 rounded-md cursor-pointer">
+                                        <summary class="font-semibold text-slate-800 group-hover:text-sky-600">Physical Infrastructure Monitoring</summary>
+                                        <p class="text-slate-600 mt-2 text-sm">Real-time monitoring and predictive modeling of hardware resources like CPU, memory, disk utilization, and network latency.</p>
+                                    </details>
+                                    <details class="group bg-slate-50 p-3 rounded-md cursor-pointer">
+                                        <summary class="font-semibold text-slate-800 group-hover:text-sky-600">Service-Based Protocol Monitoring</summary>
+                                        <p class="text-slate-600 mt-2 text-sm">Focuses on key VoIP protocols (SIP, H.248, DNS, Diameter). It computes real-time KPIs like call setup time and response delays, and uses this data to predict service degradation.</p>
+                                    </details>
+                                    <details class="group bg-slate-50 p-3 rounded-md cursor-pointer">
+                                        <summary class="font-semibold text-slate-800 group-hover:text-sky-600">Service-Based Log Monitoring</summary>
+                                        <p class="text-slate-600 mt-2 text-sm">Real-time analysis of log files from various services to recognize trends, record events, and perform forensic analysis when needed.</p>
+                                    </details>
+                                </div>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <h6 class="font-bold text-xl mb-3 text-sky-700">Level 2: High-Level Correlation</h6>
+                                <p class="text-slate-600">This is the brain of the operation. It takes the siloed data from Level 1 and performs cross-correlation analysis to understand the bigger picture. By linking infrastructure events with service behavior, it can accurately drill down to the probable root cause of any issue, transforming raw data into actionable intelligence.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-16">
+                        <h5 class="text-2xl font-bold text-center mb-8 text-slate-900">The Lambda Architecture for Data Processing</h5>
+                        <p class="text-center mt-2 mb-8 text-slate-600 max-w-3xl mx-auto">This architecture allows for both real-time stream processing and batch processing of historical data. Click on the components to learn more about their roles.</p>
+                        <div id="architecture-diagram" class="relative w-full h-[500px] md:h-[400px] bg-slate-50 rounded-xl border border-slate-200 p-4 md:p-8 flex justify-center items-center">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="future-telecom" class="py-12">
+                    <div class="text-center mb-12">
+                        <h4 class="text-2xl font-bold text-slate-900">Lessons Learned & The Path Forward</h4>
+                        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Implementing such a system provides powerful capabilities but also reveals key challenges that must be addressed for success. The future of telecommunications relies on embracing this intelligence.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                            <h5 class="font-bold text-xl mb-4 text-slate-900">Key Takeaways & Challenges</h5>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-amber-50 border-l-4 border-amber-400 rounded-r-lg">
+                                    <h6 class="font-semibold text-amber-800">Challenge: Data Noise</h6>
+                                    <p class="text-amber-700">A primary difficulty is filtering out noise from the vast amount of data, which can lead to a high rate of false positives in anomaly detection models.</p>
+                                </div>
+                                <div class="p-4 bg-sky-50 border-l-4 border-sky-400 rounded-r-lg">
+                                    <h6 class="font-semibold text-sky-800">Need: A Human in the Loop</h6>
+                                    <p class="text-sky-700">Fully autonomous systems are not yet feasible. Human expertise is crucial for validating findings, tuning models, and handling novel situations (concept drifts).</p>
+                                </div>
+                                <div class="p-4 bg-violet-50 border-l-4 border-violet-400 rounded-r-lg">
+                                    <h6 class="font-semibold text-violet-800">Need: Dynamic Adaptation</h6>
+                                    <p class="text-violet-700">The system must be able to learn and adjust its models and weights during runtime to adapt to the constantly changing network environment.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-green-600 text-white p-8 rounded-xl shadow-xl flex flex-col justify-center">
+                            <h5 class="font-bold text-2xl mb-4">The Future is Intelligent</h5>
+                            <p class="mb-4">Network automation and intelligence are no longer just tools for optimization; they are foundational for success.</p>
+                            <ul class="space-y-3">
+                                <li class="flex items-start"><span class="mr-3 mt-1">✅</span> Enables superior root cause analysis and proactive issue prediction.</li>
+                                <li class="flex items-start"><span class="mr-3 mt-1">✅</span> Underpins strategic goals by creating new, reliable customer experiences.</li>
+                                <li class="flex items-start"><span class="mr-3 mt-1">✅</span> Allows providers to efficiently deal with emerging business needs in the 5G and IoT era.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aiops-project-details" class="py-16 md:py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-slate-900">AIOps: Next-Gen System Observability</h3>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">AIOps combines big data analytics, machine learning, and automation for IT operations. It automates routine tasks, detects and resolves issues in real-time, and provides actionable insights for complex distributed systems.</p>
+                </div>
+
+                <div class="py-12">
+                    <div class="text-center mb-12">
+                        <h4 class="text-2xl font-bold text-slate-900">The Challenge: Overwhelming Complexity in IT Operations</h4>
+                        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">The scale and complexity of modern IT systems have grown to a level where manual operation and traditional monitoring methods are simply infeasible. Operations and Maintenance (O&M) teams are strained by the sheer volume and multimodality of monitoring data.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                            <h5 class="font-bold text-lg mb-2 text-slate-900">Limitations of Traditional Monitoring</h5>
+                            <ul class="space-y-2 text-slate-600">
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-red-500">❌</span> Insufficient for complex, distributed systems.</li>
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-red-500">❌</span> Reactive rather than proactive issue resolution.</li>
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-red-500">❌</span> Struggles with data dimensionality and cardinality.</li>
+                                <li class="flex items-start"><span class="mr-2 mt-1 text-red-500">❌</span> High reliance on manual intervention and domain-specific rules.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                            <h5 class="font-bold text-lg mb-2 text-slate-900">The Need for Advanced Automation</h5>
+                            <p class="text-slate-600">The increasing complexity demands new methods and software tools to improve operation processes and automate failure prevention. This calls for AI to handle the vast, heterogeneous, and dynamic data streams.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-12">
+                    <div class="text-center mb-12">
+                        <h4 class="text-2xl font-bold text-slate-900">The Solution Approach: Three Pillars of Observability & AI Integration</h4>
+                        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">AIOps leverages the three pillars of observability—Metrics, Logs, and Traces—and integrates them with AI to provide a holistic view and enable intelligent automation.</p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                            <h5 class="font-bold text-xl mb-3 text-purple-700">Metrics Analysis</h5>
+                            <p class="text-slate-600 mb-4">Numerical performance data measured over time (e.g., CPU usage, response times). AIOps applies anomaly detection to these metrics to identify unusual patterns.</p>
+                            <details class="group bg-slate-50 p-3 rounded-md cursor-pointer">
+                                <summary class="font-semibold text-slate-800 group-hover:text-purple-600">Details & Benefits</summary>
+                                <p class="text-slate-600 mt-2 text-sm">Metrics are efficient for alerting and visualization. AIOps enhances this by automating anomaly detection, moving beyond simple thresholds to identify complex patterns. This is crucial for proactive insights.</p>
+                            </details>
+                            <div class="chart-container mt-4 h-48 max-h-48">
+                                <img src="https://placehold.co/400x200/F0F9FF/000000?text=Metric+Anomaly+Viz" alt="Metric Anomaly Visualization" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                            <h5 class="font-bold text-xl mb-3 text-purple-700">Log Analysis</h5>
+                            <p class="text-slate-600 mb-4">Timestamped records of events, offering the most granular information. AIOps identifies failures and patterns from vast log streams.</p>
+                            <details class="group bg-slate-50 p-3 rounded-md cursor-pointer">
+                                <summary class="font-semibold text-slate-800 group-hover:text-purple-600">Details & Benefits</summary>
+                                <p class="text-slate-600 mt-2 text-sm">Logs provide deep insights into events before, during, and after problems. AIOps uses advanced techniques to parse, group, and analyze log sequences to uncover root causes, overcoming challenges like log diversity and quality.</p>
+                            </details>
+                            <div class="chart-container mt-4 h-48 max-h-48">
+                                <img src="https://placehold.co/400x200/F0F9FF/000000?text=Log+Sequence+Viz" alt="Log Sequence Visualization" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                            <h5 class="font-bold text-xl mb-3 text-purple-700">Traces Analysis</h5>
+                            <p class="text-slate-600 mb-4">Follows a request's path through the entire distributed system, recording interactions and latency. AIOps helps identify bottlenecks and deviations from normal behavior.</p>
+                            <details class="group bg-slate-50 p-3 rounded-md cursor-pointer">
+                                <summary class="font-semibold text-slate-800 group-hover:text-purple-600">Details & Benefits</summary>
+                                <p class="text-slate-600 mt-2 text-sm">Traces are crucial for understanding data flow and identifying performance issues across services. AIOps applies anomaly detection to trace data, despite implementation difficulties and high costs, to pinpoint errors efficiently.</p>
+                            </details>
+                            <div class="chart-container mt-4 h-48 max-h-48">
+                                <img src="https://placehold.co/400x200/F0F9FF/000000?text=Trace+Graph+Viz" alt="Trace Graph Visualization" class="w-full h-full object-contain">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 bg-white p-6 rounded-xl shadow-md border border-slate-200 text-center">
+                        <h5 class="font-bold text-xl mb-3 text-purple-700">Holistic System View & Root Cause Analysis</h5>
+                        <p class="text-slate-600">AIOps combines these different telemetry data sources (metrics, logs, traces) using advanced fusion strategies. This integrated approach enables comprehensive root cause analysis, moving beyond siloed insights to provide a complete picture of system health and performance.</p>
+                    </div>
+                </div>
+
+                <div class="py-12">
+                    <div class="text-center mb-12">
+                        <h4 class="text-2xl font-bold text-slate-900">Key Outcomes & Benefits of AIOps</h4>
+                        <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Successful AIOps implementation drives significant improvements in IT operations and overall system reliability.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                            <h5 class="font-bold text-xl mb-4 text-slate-900">Operational Excellence</h5>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start"><span class="mr-3 mt-1 text-green-500">✔️</span> Automates routine tasks and detects/resolves issues in real-time.</li>
+                                <li class="flex items-start"><span class="mr-3 mt-1 text-green-500">✔️</span> Reduces average time to repair (MTTR) and improves system availability.</li>
+                                <li class="flex items-start"><span class="mr-3 mt-1 text-green-500">✔️</span> Provides actionable insights for proactive decision-making.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                            <h5 class="font-bold text-xl mb-4 text-slate-900">Strategic Impact</h5>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start"><span class="mr-3 mt-1 text-green-500">✔️</span> Enables proactive insights and predictive analytics for capacity planning and resource optimization.</li>
+                                <li class="flex items-start"><span class="mr-3 mt-1 text-green-500">✔️</span> Augments human expertise, allowing teams to focus on strategic initiatives rather than reactive firefighting.</li>
+                                <li class="flex items-start"><span class="mr-3 mt-1 text-green-500">✔️</span> Requires cultural shift and upskilling of employees for long-term success.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="team" class="py-16 md:py-24 bg-slate-100">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-slate-900">Meet Our AI Engineering Team</h3>
+                    <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">Our diverse team of experts brings a wealth of experience and cutting-edge skills to every AI challenge, driving innovation from concept to deployment.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Gjorgji Madjarov -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/150x150/D1E7DD/000000?text=Gjorgji" alt="Gjorgji Madjarov" class="rounded-full mb-4 w-36 h-36 object-cover border-4 border-emerald-300">
+                        <h4 class="font-bold text-lg text-slate-900">Gjorgji Madjarov</h4>
+                        <p class="text-emerald-600 font-medium">Technical Head of AI / Full Professor</p>
+                        <p class="text-slate-600 mt-2 text-sm">Gjorgji is the Technical Head of AI at Netcetera, and a Full Professor specializing in Big Data, Time Series Analysis, and Software Engineering. He is also the Chief AI Officer at gMendel, leading end-to-end AI solutions for genetic disorder detection. His extensive experience includes AI advisory roles at Netcetera, and co-founding Elevate Global DOO, focusing on real-time datastream analytics platforms.</p>
+                        <p class="text-xs text-slate-500 mt-2">**Tech Stack:** Generative AI, Medical Data Analysis, Time Series Analysis, Anomaly Detection, AIOps, Big Data, Apache Kafka, Apache Flink, Elastic Stack, Python, Machine Learning, Deep Learning.</p>
+                    </div>
+
+                    <!-- Martin Popovski -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/150x150/D1E7DD/000000?text=Martin" alt="Martin Popovski" class="rounded-full mb-4 w-36 h-36 object-cover border-4 border-emerald-300">
+                        <h4 class="font-bold text-lg text-slate-900">Martin Popovski</h4>
+                        <p class="text-emerald-600 font-medium">Tech Lead Generative AI</p>
+                        <p class="text-slate-600 mt-2 text-sm">Martin leads the development of AI services, driving innovation with the latest generative AI technologies. He excels in extracting structured data using computer vision and NLP, and developed an award-winning AI Banking Assistant. His work includes extensive experience with Docker, Kubernetes, and designing multi-service architectures.</p>
+                        <p class="text-xs text-slate-500 mt-2">**Tech Stack:** Python, Rust, Go, C#, Java, Bash, scikit-learn, PyTorch, TensorFlow, Keras, Transformers, OpenCV, OCR, Celery, Pydantic, FastAPI, SQLAlchemy, LangChain, Pydantic AI, Docker, Kubernetes, Vector Databases.</p>
+                    </div>
+
+                    <!-- Kiril Blazhevski -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/150x150/D1E7DD/000000?text=Kiril" alt="Kiril Blazhevski" class="rounded-full mb-4 w-36 h-36 object-cover border-4 border-emerald-300">
+                        <h4 class="font-bold text-lg text-slate-900">Kiril Blazhevski</h4>
+                        <p class="text-emerald-600 font-medium">Machine Learning Engineer</p>
+                        <p class="text-slate-600 mt-2 text-sm">Kiril is a Machine Learning Engineer with significant contributions to the DocDive platform, focusing on RAG techniques for information retrieval, entity extraction, and summarization. He has fine-tuned cross-encoder reranker models and is skilled in extracting structured data using computer vision and LLM algorithms.</p>
+                        <p class="text-xs text-slate-500 mt-2">**Tech Stack:** Python, FastAPI, Celery, PyTorch, Hugging Face Transformers, scikit-learn, NumPy, pandas, Docker, vLLM, Ollama, NVIDIA Triton, PostgreSQL, Qdrant, Neo4j, RabbitMQ.</p>
+                    </div>
+
+                    <!-- Andrej Jankov -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/150x150/D1E7DD/000000?text=Andrej" alt="Andrej Jankov" class="rounded-full mb-4 w-36 h-36 object-cover border-4 border-emerald-300">
+                        <h4 class="font-bold text-lg text-slate-900">Andrej Jankov</h4>
+                        <p class="text-emerald-600 font-medium">Machine Learning Engineer</p>
+                        <p class="text-slate-600 mt-2 text-sm">Andrej is a Machine Learning Engineer who has worked extensively on the DocDive platform, implementing long-running workers for entity extraction and classification using LLMs. He is also experienced in developing dynamic Multi-Agent LLM systems and agents for RAG systems with enhanced functionalities.</p>
+                        <p class="text-xs text-slate-500 mt-2">**Tech Stack:** Python, ML, NLP, HuggingFace, LLMs, Transformers, scikit-learn, Keras, PyTorch, Pydantic, LangChain, LangGraph, Pydantic AI, Vector Databases, Qdrant, Ollama, vLLM, FastAPI, Knowledge Graphs.</p>
+                    </div>
+
+                    <!-- Pascal Wyler (Moved to 5th position) -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/150x150/D1E7DD/000000?text=Pascal" alt="Pascal Wyler" class="rounded-full mb-4 w-36 h-36 object-cover border-4 border-emerald-300">
+                        <h4 class="font-bold text-lg text-slate-900">Pascal Wyler</h4>
+                        <p class="text-emerald-600 font-medium">Senior AI Engineer</p>
+                        <p class="text-slate-600 mt-2 text-sm">Pascal is a Senior AI Engineer with a Master of Science in Data Science. He specializes in designing robust evaluation pipelines for LLM-generated responses in RAG systems and building Agentic AI prototypes for fraud investigations. His expertise extends to MLOps and ETL pipelines, ensuring smooth model operations in both on-premises and cloud environments.</p>
+                        <p class="text-xs text-slate-500 mt-2">**Tech Stack:** LangChain, PydanticAI, PyTorch, Tensorflow, Scikit-learn, PySpark, Generative AI, LLMs, Azure Cloud, Python, SQL, R, Bash, Docker, Jenkins, PyTest, AWS Bedrock, GCP Vertex AI.</p>
+                    </div>
+
+                    <!-- Borjan -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border border-slate-200 flex flex-col items-center text-center">
+                        <img src="https://placehold.co/150x150/D1E7DD/000000?text=Borjan" alt="Borjan" class="rounded-full mb-4 w-36 h-36 object-cover border-4 border-emerald-300">
+                        <h4 class="font-bold text-lg text-slate-900">Borjan</h4>
+                        <p class="text-emerald-600 font-medium">Machine Learning Engineer</p>
+                        <p class="text-slate-600 mt-2 text-sm">Borjan is a Machine Learning Engineer at G+D Netcetera. He has prior experience as a Python Developer at GPT Protocol and an ML Intern at Netcetera, where he worked with LangChain and Ollama. His background also includes scholarly research and an AI Engineer internship at Transformify Inc.</p>
+                        <p class="text-xs text-slate-500 mt-2">**Tech Stack:** Python, LangChain, Ollama, PyTorch, Datasets, ASP.NET Core, Xamarin Products, Scholarly Research, Linux, Virtual Machine Manager.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <footer class="bg-slate-800 text-slate-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>Netcetera AI Showcase. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <div id="modal" class="fixed inset-0 bg-black/60 z-50 hidden flex justify-center items-center p-4">
+        <div id="modal-content" class="bg-white w-full max-w-md p-6 rounded-lg shadow-xl relative">
+            <button id="modal-close" class="absolute top-3 right-3 text-slate-500 hover:text-slate-800">&times;</button>
+            <h3 id="modal-title" class="text-xl font-bold mb-4 text-slate-900"></h3>
+            <p id="modal-body" class="text-slate-600"></p>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const chartData = {
+                traditional: {
+                    labels: ['Real-time', 'Seconds', 'Minutes', 'Hours', 'Days', 'Months'],
+                    datasets: [{
+                        label: 'Reactive',
+                        data: [100, 98, 95, 60, 40, 20],
+                        backgroundColor: 'rgba(100, 116, 139, 0.5)',
+                        borderColor: 'rgb(100, 116, 139)',
+                        fill: {target: 'origin', above: 'rgba(100, 116, 139, 0.2)'},
+                        tension: 0.3,
+                        pointRadius: 0,
+                    },{
+                        label: 'Historical',
+                        data: [0, 0, 0, 0, 40, 20],
+                        backgroundColor: 'rgba(148, 163, 184, 0.5)',
+                        borderColor: 'rgb(148, 163, 184)',
+                        fill: {target: 'origin', above: 'rgba(148, 163, 184, 0.2)'},
+                        tension: 0.3,
+                        pointRadius: 0,
+                    }]
+                },
+                predictive: {
+                    labels: ['Real-time', 'Seconds', 'Minutes', 'Hours', 'Days', 'Months'],
+                    datasets: [{
+                        label: 'Preventive, Predictive',
+                        data: [100, 98, 80, 25, 0, 0],
+                        backgroundColor: 'rgba(14, 165, 233, 0.5)',
+                        borderColor: 'rgb(14, 165, 233)',
+                        fill: {target: 'origin', above: 'rgba(14, 165, 233, 0.2)'},
+                        tension: 0.3,
+                        pointRadius: 0,
+                    }, {
+                        label: 'Actionable',
+                        data: [100, 98, 80, 25, 0, 0],
+                         backgroundColor: 'rgba(59, 130, 246, 0.5)',
+                        borderColor: 'rgb(59, 130, 246)',
+                        fill: {target: 'origin', above: 'rgba(59, 130, 246, 0.2)'},
+                        tension: 0.3,
+                        pointRadius: 0,
+                    }, {
+                        label: 'Reactive',
+                        data: [0, 0, 0, 25, 15, 5],
+                         backgroundColor: 'rgba(100, 116, 139, 0.5)',
+                        borderColor: 'rgb(100, 116, 139)',
+                        fill: {target: 'origin', above: 'rgba(100, 116, 139, 0.2)'},
+                        tension: 0.3,
+                        pointRadius: 0,
+                    }, {
+                        label: 'Historical',
+                        data: [0, 0, 0, 0, 15, 5],
+                        backgroundColor: 'rgba(148, 163, 184, 0.5)',
+                        borderColor: 'rgb(148, 163, 184)',
+                        fill: {target: 'origin', above: 'rgba(148, 163, 184, 0.2)'},
+                        tension: 0.3,
+                        pointRadius: 0,
+                    }]
+                }
+            };
+
+            const ctx = document.getElementById('valueChart').getContext('2d');
+            let valueChart = new Chart(ctx, {
+                type: 'line',
+                data: chartData.traditional,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Value of Data to Decision Making' }
+                        },
+                        x: {
+                            title: { display: true, text: 'Time' }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: { enabled: true }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index',
+                    },
+                }
+            });
+
+            const toggle = document.getElementById('chartToggle');
+            toggle.addEventListener('change', function() {
+                const isPredictive = this.checked;
+                const dot = this.nextElementSibling.nextElementSibling;
+                if (isPredictive) {
+                    valueChart.data = chartData.predictive;
+                    dot.style.transform = 'translateX(100%)';
+                } else {
+                    valueChart.data = chartData.traditional;
+                    dot.style.transform = 'translateX(0)';
+                }
+                valueChart.update();
+            });
+
+
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalBody = document.getElementById('modal-body');
+            const modalClose = document.getElementById('modal-close');
+            
+            modalClose.addEventListener('click', () => modal.classList.add('hidden'));
+            modal.addEventListener('click', (e) => {
+                if(e.target === modal) {
+                    modal.classList.add('hidden');
+                }
+            });
+
+
+            const architectureComponents = {
+                'heterogeneous-data': {
+                    title: 'Heterogeneous Data',
+                    description: 'This represents the various data sources feeding into the system, including network logs, performance metrics, and protocol messages (SIP, Diameter, etc.). The data is unstructured and comes from many different parts of the network.',
+                    position: { top: '50%', left: '5%' }
+                },
+                'kafka1': {
+                    title: 'Apache Kafka (Ingestion)',
+                    description: 'Acts as the central nervous system for data ingestion. It\'s a distributed publish-subscribe messaging system that reliably collects high-volume data streams from all sources and makes them available for processing.',
+                    position: { top: '50%', left: '20%' }
+                },
+                'flink': {
+                    title: 'Apache Flink (Stream Processor)',
+                    description: 'A powerful, stateful stream processing engine. It processes data in real-time as it arrives from Kafka, performing tasks like filtering, aggregation, and running real-time ML models for immediate anomaly detection.',
+                    position: { top: '50%', left: '40%' }
+                },
+                'batch-unit': {
+                    title: 'Batch Processing Unit',
+                    description: 'This component handles large, historical datasets. It periodically runs complex ML model training, deep analysis, and reporting on data stored long-term. The models it creates are then used by the real-time processor.',
+                    position: { top: '75%', left: '60%' }
+                },
+                'storage': {
+                    title: 'HDFS, Elastic Search (Storage)',
+                    description: 'Long-term storage for both raw and processed data. HDFS (Hadoop Distributed File System) is used for massive datasets for batch processing, while Elasticsearch is used for indexing and fast searching of results and logs.',
+                    position: { top: '25%', left: '80%' }
+                },
+                'kafka2': {
+                    title: 'Apache Kafka (Egress)',
+                    description: 'Serves as the exit point for the system. Processed results, notifications, and alerts are published to Kafka topics, where external systems (dashboards, alerting tools, etc.) can subscribe to them.',
+                    position: { top: '75%', left: '80%' }
+                },
+                 'output': {
+                    title: 'System Output / Alerts',
+                    description: 'Represents the final output of the system, such as alerts sent to network operators, data visualizations on a dashboard, or automated self-healing actions triggered in the network.',
+                    position: { top: '75%', left: '95%' }
+                }
+            };
+
+            const diagramContainer = document.getElementById('architecture-diagram');
+            
+            function createComponent(id, details) {
+                const el = document.createElement('div');
+                el.id = id;
+                el.className = 'component-dot absolute transform -translate-x-1/2 -translate-y-1/2 bg-white p-2 rounded-lg shadow-lg border-2 border-sky-500 cursor-pointer z-10';
+                el.style.top = details.position.top;
+                el.style.left = details.position.left;
+                
+                const titleEl = document.createElement('span');
+                titleEl.className = 'text-xs md:text-sm font-semibold text-center text-slate-800 whitespace-nowrap';
+                const shortTitle = details.title.replace(' (Ingestion)', '').replace(' (Egress)', '');
+                titleEl.textContent = shortTitle;
+                el.appendChild(titleEl);
+
+                el.addEventListener('click', () => {
+                    modalTitle.textContent = details.title;
+                    modalBody.textContent = details.description;
+                    modal.classList.remove('hidden');
+                });
+                return el;
+            }
+
+            function createLine(pos1, pos2, container) {
+                 const line = document.createElement('div');
+                line.className = 'flow-line';
+                const angle = Math.atan2(pos2.y - pos1.y, pos2.x - pos1.x) * 180 / Math.PI;
+                const length = Math.sqrt(Math.pow(pos2.x - pos1.x, 2) + Math.pow(pos2.y - pos1.y, 2));
+                line.style.width = `${length}px`;
+                line.style.height = '2px';
+                line.style.left = `${pos1.x}px`;
+                line.style.top = `${pos1.y}px`;
+                line.style.transform = `rotate(${angle}deg)`;
+                line.style.transformOrigin = '0 0';
+                container.appendChild(line);
+
+                const arrow = document.createElement('div');
+                arrow.className = 'flow-arrow';
+                arrow.style.position = 'absolute';
+                arrow.style.left = `${pos2.x}px`;
+                arrow.style.top = `${pos2.y}px`;
+                arrow.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+                container.appendChild(arrow);
+            }
+            
+            Object.keys(architectureComponents).forEach(key => {
+                const comp = createComponent(key, architectureComponents[key]);
+                diagramContainer.appendChild(comp);
+            });
+
+            function drawConnections() {
+                diagramContainer.querySelectorAll('.flow-line, .flow-arrow').forEach(el => el.remove());
+                const getCenter = (id) => {
+                    const el = document.getElementById(id);
+                    return {
+                        x: el.offsetLeft + el.offsetWidth / 2,
+                        y: el.offsetTop + el.offsetHeight / 2
+                    };
+                };
+
+                createLine(getCenter('heterogeneous-data'), getCenter('kafka1'), diagramContainer);
+                createLine(getCenter('kafka1'), getCenter('flink'), diagramContainer);
+                createLine(getCenter('flink'), getCenter('storage'), diagramContainer);
+                createLine(getCenter('flink'), getCenter('batch-unit'), diagramContainer);
+                createLine(getCenter('batch-unit'), getCenter('flink'), diagramContainer);
+                createLine(getCenter('batch-unit'), getCenter('kafka2'), diagramContainer);
+                createLine(getCenter('kafka2'), getCenter('output'), diagramContainer);
+
+            }
+
+            // Initial and resize drawing
+            new ResizeObserver(drawConnections).observe(diagramContainer);
+
+        });
+    </script>
+</body>
+</html>
